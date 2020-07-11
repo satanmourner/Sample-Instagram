@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+}
+
+body {
+  background-color: rgb(19, 18, 18);
+  color: white;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: center;
+  max-width: 100%;
+  border-bottom: 1px solid rgb(150, 147, 150);
+  padding: 10px;
+}
+
+div#logo {
+  width: 33.3%;
+  margin: auto;
+}
+
+h1#logo-style {
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  cursor: pointer;
+}
+
+div#seacrh {
+  width: 33.3%;
+  margin: auto;
+}
+
+div.input-container {
+  background-color: rgb(19, 18, 18);
+  border: 1px solid rgb(107, 104, 107);
+  border-radius: 2.5px;
+  padding: 5px;
+  max-width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+img.search-logo {
+  width: 12px; 
+  height: 12px;
+  margin: auto 5px;
+}
+
+input.input-text {
+  background-color: rgb(19, 18, 18);
+  color: white;
+  border: none;
+  width: 30%;
+}
+
+span.close-logo {
+  margin: auto;
+  display: none;
+  cursor: default;
+  font-size: 15px;
+  margin: auto 2px;
+  padding: 0px 5px;
+}
+
+ul#right {
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 33.3%; 
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+li {
+  display: block;
+  float: left;
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+img.profile {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
