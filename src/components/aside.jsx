@@ -4,7 +4,7 @@ export default class Aside extends React.Component {
   render () {
     return (
       <div className="left">
-          aside
+        aside
       </div>
     );
   }
