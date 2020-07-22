@@ -1,0 +1,111 @@
+div.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: flex-start;
+  width: 100%;
+}
+
+div.main {
+  margin-top: 50px;
+  margin-right: 25px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.stories {
+  width: 100%;
+  height: 120px;
+  background-color: black;
+  border: 1px solid rgb(107, 104, 107);
+  border-radius: 2.5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0px 5px;
+}
+
+div.all-stories {
+  min-width: 100%;
+  height: 100px;
+  left:0;
+  right: 0;
+  margin: auto;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  transition: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+div.contain-story {
+  width: 80px;
+  height: 120px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+}
+
+div.contain-pic {
+  width: 90%;
+  height: 60%; 
+  background-image: linear-gradient(to right, #bdc3c7 0%, #185a9d 30%, #2c3e50 50%);
+  background-clip: border-box;
+  border-radius: 50px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+img.story-pic {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+div.story-text {
+  text-align: center;
+  margin: 2px;
+}
+
+.story-text a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+.arrow-right, .arrow-left{
+  cursor: pointer;
+  position: absolute;
+  margin: auto;
+}
+
+.arrow-right {
+  right: 0;
+  margin-right: 5px;
+}
+
+.arrow-left {
+  display: none;
+}
+
+.arrow-right i, .arrow-left i{
+  background-color: white;
+  color: black; 
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 150px;
+  padding: 1px 6px;
+  mix-blend-mode: screen; /*impo*/
+}

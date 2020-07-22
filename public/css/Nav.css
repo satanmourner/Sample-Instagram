@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+}
+
+body {
+  background-color: rgb(19, 18, 18);
+  color: white;
+  height: 100%;
+}
+
+body::-webkit-scrollbar, textarea::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track {
+  background: #28292b;
+}
+
+body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #bdc3c7, #185a9d, #2c3e50);
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: center;
+  max-width: 100%;
+  border-bottom: 1px solid rgb(150, 147, 150);
+  padding: 10px;
+}
+
+div#logo {
+  width: 33.3%;
+  margin: auto;
+}
+
+h1#logo-style {
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  cursor: pointer;
+}
+
+div#seacrh {
+  width: 33.3%;
+  margin: auto;
+}
+
+div.input-container {
+  background-color: rgb(19, 18, 18);
+  border: 1px solid rgb(107, 104, 107);
+  border-radius: 2.5px;
+  padding: 5px;
+  max-width: 50%;
+  margin: auto;
+  cursor: text;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+img.search-logo {
+  width: 12px; 
+  height: 12px;
+  margin: auto 5px;
+}
+
+input.input-text {
+  background-color: rgb(19, 18, 18);
+  color: white;
+  border: none;
+  width: 30%;
+}
+
+span.close-logo {
+  margin: auto;
+  display: none;
+  cursor: default;
+  font-size: 15px;
+  margin: auto 2px;
+  padding: 0px 5px;
+}
+
+div.right {
+  width: 33.3%; 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.right > i {
+  display: block;
+  padding: 5px 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+img.profile {
+  width: 25px;
+  height: 25px;
+  margin: 5px 10px;
+  border-radius: 50px;
+  display: block;
+}

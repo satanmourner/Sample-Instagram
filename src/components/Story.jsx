@@ -15,7 +15,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
             <div className="story-text">
               <a href="#">id no.2</a>
@@ -23,7 +23,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
             <div className="story-text">
               <a href="#">id no.3</a>
@@ -31,7 +31,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
             <div className="story-text">
               <a href="#">id no.4</a>
@@ -39,7 +39,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
             <div className="story-text">
               <a href="#">id no.5</a>
@@ -47,7 +47,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
             <div className="story-text">
               <a href="#">id no.6</a>
@@ -55,7 +55,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
             <div className="story-text">
               <a href="#">id no.7</a>
@@ -63,7 +63,7 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/prof.jpg" />
             </div>
             <div className="story-text">
               <a href="#">id no.8</a>
@@ -71,11 +71,35 @@ export default class Story extends React.Component {
           </div>
           <div className="contain-story">
             <div className="contain-pic">
-              <img className="story-pic" src="./images/avatar.png" />
+              <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
             <div className="story-text">
-              <a href="#">id no.9/2</a>
+              <a href="#">id no.9</a>
             </div>
+          </div>
+          <div className="contain-story">
+            <div className="contain-pic">
+              <img className="story-pic" src="./images/avatar-other.jpeg" />
+            </div>
+            <div className="story-text">
+              <a href="#">id no.10</a>
+            </div>
+          </div>
+          <div className="contain-story">
+            <div className="contain-pic">
+              <img className="story-pic" src="./images/avatar-other2.jpg" />
+            </div>
+            <div className="story-text">
+              <a href="#">id no.11</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="arrow-left">
+            <i>&lt;</i>
+          </div>
+          <div className="arrow-right">
+            <i>&gt;</i>
           </div>
         </div>
       </div>

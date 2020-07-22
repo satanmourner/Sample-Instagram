@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Nav from './components/navbar'
-import Story from './components/story'
-import Compo from './components/component'
-import Aside from './components/aside'
+import Nav from './components/Navbar'
+import Story from './components/Story'
+import Content from './components/Content'
+import Aside from './components/Aside'
+import Section from './components/Section'
 
 function App() {
   return (
@@ -14,17 +14,14 @@ function App() {
 
         <div className="main">
           <Story />
-          <Compo />
+          <Content />
         </div>
 
         <div className="aside">
           <Aside />
         </div>
       </div>
-      <section>
-      whole
-      <p class="p-close">&times;</p>
-    </section>
+      {/* <Section /> */}
     </div>
   );
 }
