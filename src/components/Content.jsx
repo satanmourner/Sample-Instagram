@@ -55,7 +55,7 @@ export default class Content extends React.Component {
         </div>
         <hr />
         <div className="ur-comment">
-          <textarea className="comment-message" placeholder="Add a comment..." onkeyup="resizeText(this)" defaultValue={""} />
+          <textarea className="comment-message" placeholder="Add a comment..." onKeyUp="resizeText(this)" defaultValue={""} />
           <input type="submit" defaultValue="Post" />
         </div>
       </div>

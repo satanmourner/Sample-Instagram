@@ -38,7 +38,7 @@ export default class Section extends React.Component {
             <img className="story" src="./images/WALL3.jpeg" />
             <div className="message">
               <div className="message-container">
-                <textarea placeholder="Send message ..." className="input-message" onkeyup="resizeText(this)" defaultValue={""} />
+                <textarea placeholder="Send message ..." className="input-message" onKeyUp="resizeText(this)" defaultValue={""} />
                 <input type="submit" defaultValue="Send" />
               </div>
               <i className="far fa-paper-plane" />
