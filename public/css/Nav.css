@@ -62,6 +62,7 @@ div.input-container {
   flex-direction: row;
   align-content: center;
   justify-content: center;
+  cursor: text;
 }
 
 img.search-logo {
@@ -75,6 +76,7 @@ input.input-text {
   color: white;
   border: none;
   width: 30%;
+  cursor: text;
 }
 
 span.close-logo {
