@@ -1,6 +1,42 @@
 import React, { Component } from 'react';
 
+var newOver = "";
+var comment = "";
+
 export default class Content extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { setHeight : false, over: false, value: '', submitted: false, input: [] };
+    this.resizeText = this.resizeText.bind(this);
+    this.changeValue = this.changeValue.bind(this);
+    this.handleSub = this.handleSub.bind(this);
+  }
+
+  resizeText(e) {
+    let newHeight = `${e.target.scrollHeight}px`; /*impo*/
+    if(!e.target.value) { newHeight = ""; newOver = "" };
+    if(this.state.setHeight >= "80px") { newOver =  "visible" };
+    this.setState({
+      setHeight : newHeight,
+      over: newOver
+    });
+  }
+
+  changeValue(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  handleSub(e) {
+    e.preventDefault();
+    this.setState({
+      submitted: true,
+      input: this.state.input.concat(this.state.value ),
+      value: '',
+      setHeight: '',
+      over: ''
+    });
+  }
+
   render () {
     return (
       <div className="content">
@@ -45,9 +81,12 @@ export default class Content extends React.Component {
         </div>
         <div className="container-content">
           <div className="caption">
+            caption
           </div>
           <div className="comment">
-            comment
+            {this.state.submitted ? this.state.input.map((input) => 
+            <p className="p-comment"><span className="span-comment">some id </span>{input}</p>) 
+            : "none"}
           </div>
           <div className="time-post">
             time posted
@@ -55,8 +94,11 @@ export default class Content extends React.Component {
         </div>
         <hr />
         <div className="ur-comment">
-          <textarea className="comment-message" placeholder="Add a comment..." onKeyUp="resizeText(this)" defaultValue={""} />
-          <input type="submit" defaultValue="Post" />
+          <textarea className="comment-message" placeholder="Add a comment..." onKeyUp={this.resizeText} 
+          style={{height: this.state.setHeight ? this.state.setHeight : "20px",
+          overflow: this.state.over ? this.state.over : "hidden" }} 
+          value={this.state.value} onChange={this.changeValue} />
+          <input type="submit" value="Post" onClick={this.handleSub} />
         </div>
       </div>
     );
