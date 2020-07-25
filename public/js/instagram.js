@@ -17,23 +17,6 @@ $(document).ready ( function () {
 
   $("img").attr("draggable", "false");
 
-  var count = 1;
-  var temp = 0;
-  $(".arrow-right").click( () => {
-    $(".all-stories").css("transform", "translateX(" + (-270 * count) + "px) ");
-    $(".arrow-left").show();
-    count += 1;
-    temp = count;
-  });
-  $(".arrow-left").click( () => {
-    $(".all-stories").css("transform", "translateX(" + (-270 * (temp - 1) + 270) + "px) ");
-    count -= 1
-    temp = count;
-    if(temp === 1) {
-      $(".arrow-left").hide();
-    }
-  });
-
   $(".more, .borderDown").click( () => {
     $(".more-section").fadeToggle(80);
     $(".story").css("filter", "blur(2.5px)");
