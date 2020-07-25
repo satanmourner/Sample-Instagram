@@ -65,11 +65,6 @@ $(document).ready ( function () {
 });
 
 function resizeText(text) {
-  text.style.height = "20px";
-  text.style.height = text.scrollHeight+"px";
-  if(text.style.height >= "80px") {
-    text.style.overflow = "auto";
-  }
   
   (text.value) ? $(".message-container > input").show() && $(".react-emojies").hide() 
   : $(".message-container > input").hide() && $(".react-emojies").css({"display": "flex",
