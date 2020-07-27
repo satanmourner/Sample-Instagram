@@ -12,7 +12,6 @@ $(document).ready ( function () {
   $(".close-story").click( () => {
     $(".container").show();
     $("section").hide();
-    // $(".react-emojies").hide();
   });
 
   $("img").attr("draggable", "false");
