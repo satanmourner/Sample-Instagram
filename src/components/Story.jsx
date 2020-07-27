@@ -7,9 +7,10 @@ var showLeftBool = true;
 export default class Story extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showLeft: false, trans: 0 };
+    this.state = {showLeft: false, trans: 0};
     this.transfromShow = this.transfromShow.bind(this);
     this.transformHide = this.transformHide.bind(this);
+    this.show = this.show.bind(this);
   }
 
   transfromShow() {
@@ -32,18 +33,20 @@ export default class Story extends React.Component {
     this.setState ({
       showLeft: showLeftBool,
       trans: newTrans 
-    })
+    });
   }
+
+  show = (e) => this.props.onClick();
 
   render() {
     return (
       <div className="stories">
         <div className="all-stories" style={{transform: this.state.trans}} >
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar.png" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.1</a>
             </div>
           </div>
