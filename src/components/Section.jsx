@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 
 export default class Section extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {hideStory: null};
+    this.hide = this.hide.bind(this);
+  }
+
+  hide = () => this.setState({hideStory: true});
+
   render() {
     return (
-      <section>
+      <section style={{display: (!this.state.hideStory) && (this.props.clicked) ? "flex" : "none"}}>
         <div className="more-section">
           <div className="more-link borderUp">
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
@@ -44,7 +52,7 @@ export default class Section extends React.Component {
               <i className="far fa-paper-plane" />
             </div>
             <div className="right-side">
-              <div className="close-story">
+              <div className="close-story" onClick={this.hide}>
                 ×
               </div>
               <div className="arrow-story">
