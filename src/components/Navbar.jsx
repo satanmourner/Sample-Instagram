@@ -11,28 +11,20 @@ export default class Nav extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  changeValue(event) {
-    this.setState({value: event.target.value});
-  }
+  changeValue = (event) => this.setState({value: event.target.value});
 
-  onClickDiv() {
-    this.setState({showSpan: true, widthText: 162}); 
-  }
+  onClickDiv = () => this.setState({showSpan: true, widthText: 162}); 
 
-  onClickClose(event) {
+  onClickClose = (event) => {
     event.stopPropagation(); /*impo*/
     this.setState({showSpan: false, widthText: 63.63});
   }
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-}
+  componentDidMount = () => document.addEventListener('mousedown', this.handleClickOutside);
 
-  componentWillUnmount() {
-      document.removeEventListener('mousedown', this.handleClickOutside);
-  }
+  componentWillUnmount = () => document.removeEventListener('mousedown', this.handleClickOutside);
 
-  handleClickOutside(event) {
+  handleClickOutside  = (event) => {
     if (this.createRef && !this.createRef.current.contains(event.target)) {
       this.setState({showSpan: false, widthText: 63.63});
     }
