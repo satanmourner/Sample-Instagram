@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Section extends React.Component {
   render() {
     return (
-      <div>
+      <section>
         <div className="more-section">
           <div className="more-link borderUp">
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
@@ -64,7 +64,7 @@ export default class Section extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }
