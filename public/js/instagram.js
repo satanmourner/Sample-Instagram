@@ -1,17 +1,7 @@
 $(document).ready ( function () {
 
-  $(".contain-pic, .story-text").click( () => {
-    $(".container").hide();
-    $("section").css({
-      "display": "flex",
-      "justify-content": "center",
-      "align-items": "center"
-    });
-  });
-
   $(".close-story").click( () => {
     $(".container").show();
-    $("section").hide();
   });
 
   $("img").attr("draggable", "false");
