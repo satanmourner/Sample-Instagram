@@ -11,11 +11,16 @@ class App extends React.Component {
     super(props);
     this.state = {showStory: false};
     this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
   }
 
   show() {
     this.setState({showStory: true});
     console.log(this.state.showStory);
+  }
+
+  hide() {
+    this.setState({showStory: false});
   }
   
   render() {
@@ -33,7 +38,7 @@ class App extends React.Component {
             <Aside />
           </div>
         </div>
-        <Section clicked={this.state.showStory} />
+        <Section clicked={this.state.showStory} onClick={this.hide} />
       </div>
     );
   }

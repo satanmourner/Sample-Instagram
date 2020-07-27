@@ -7,11 +7,11 @@ export default class Section extends React.Component {
     this.hide = this.hide.bind(this);
   }
 
-  hide = () => this.setState({hideStory: true});
+  hide = () => this.props.onClick();
 
   render() {
     return (
-      <section style={{display: (!this.state.hideStory) && (this.props.clicked) ? "flex" : "none"}}>
+      <section style={{display: this.props.clicked ? "flex" : "none"}}>
         <div className="more-section">
           <div className="more-link borderUp">
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>

@@ -1,9 +1,5 @@
 $(document).ready ( function () {
 
-  $(".close-story").click( () => {
-    $(".container").show();
-  });
-
   $("img").attr("draggable", "false");
 
   $(".more, .borderDown").click( () => {

@@ -51,82 +51,82 @@ export default class Story extends React.Component {
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.2</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.3</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.4</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.5</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.6</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.7</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/prof.jpg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.8</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.9</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other.jpeg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.10</a>
             </div>
           </div>
           <div className="contain-story">
-            <div className="contain-pic">
+            <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src="./images/avatar-other2.jpg" />
             </div>
-            <div className="story-text">
+            <div className="story-text" onClick={this.show}>
               <a href="#">id no.11</a>
             </div>
           </div>
