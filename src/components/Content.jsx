@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 
 var newOver = "";
-var comment = "";
+var newCm = false;
 
 export default class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { setHeight : false, over: false, value: '', submitted: false, input: [] };
+    this.state = { setHeight : false, over: false, value: '', submitted: false, input: [], showCm: [], wrap: [], expand: null };
     this.resizeText = this.resizeText.bind(this);
     this.changeValue = this.changeValue.bind(this);
     this.handleSub = this.handleSub.bind(this);
+    this.onEnterPress = this.onEnterPress.bind(this);
+    this.expandText = this.expandText.bind(this);
   }
 
-  resizeText(e) {
+  resizeText = (e) => {
     let newHeight = `${e.target.scrollHeight}px`; /*impo*/
     if(!e.target.value) { newHeight = ""; newOver = "" };
     if(this.state.setHeight >= "80px") { newOver =  "visible" };
@@ -22,18 +24,27 @@ export default class Content extends React.Component {
     });
   }
 
-  changeValue(e) {
-    this.setState({ value: e.target.value });
-  }
-
-  handleSub(e) {
+  changeValue = (e) => this.setState({ value: e.target.value });
+  
+  handleSub = (e) => {
     e.preventDefault();
+    (this.state.value.length > 40) ? newCm = true : newCm = false;
     this.setState({
       submitted: true,
-      input: this.state.input.concat(this.state.value ),
+      input: this.state.input.concat(this.state.value),
       value: '',
       setHeight: '',
-      over: ''
+      over: '',
+      showCm: this.state.showCm.concat(newCm),
+    });
+  }
+
+  onEnterPress = (e) => (e.keyCode == 13) ? this.handleSub(e) : null;
+
+  expandText = (id) => {
+    this.setState({
+      expand: id,
+      /*has some bug and after click on more -> display: none*/
     });
   }
 
@@ -84,8 +95,12 @@ export default class Content extends React.Component {
             caption
           </div>
           <div className="comment">
-            {this.state.submitted ? this.state.input.map((input) => 
-            <p className="p-comment"><span className="span-comment">some id </span>{input}</p>) 
+            {this.state.submitted ? this.state.input.map((input, index) => 
+            <p className="p-comment" style={{whiteSpace: (this.state.expand === index) 
+            && (this.state.showCm[index]) ? "normal" : "nowrap"}}>
+            <span className="span-comment">some id </span>{input}
+            <span className="more-cm" style={{display: this.state.showCm[index] ? "block" : "none"}}>
+            <a onClick={() => this.expandText(index)}>more...</a></span></p>) 
             : "none"}
           </div>
           <div className="time-post">
@@ -94,7 +109,8 @@ export default class Content extends React.Component {
         </div>
         <hr />
         <div className="ur-comment">
-          <textarea className="comment-message" placeholder="Add a comment..." onKeyUp={this.resizeText} 
+          <textarea className="comment-message" placeholder="Add a comment..." 
+          onKeyUp={this.resizeText} onKeyDown={this.onEnterPress}
           style={{height: this.state.setHeight ? this.state.setHeight : "20px",
           overflow: this.state.over ? this.state.over : "hidden" }} 
           value={this.state.value} onChange={this.changeValue} />
