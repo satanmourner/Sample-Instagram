@@ -14,14 +14,9 @@ class App extends React.Component {
     this.hide = this.hide.bind(this);
   }
 
-  show() {
-    this.setState({showStory: true});
-    console.log(this.state.showStory);
-  }
+  show = () => this.setState({showStory: true});
 
-  hide() {
-    this.setState({showStory: false});
-  }
+  hide = () => this.setState({showStory: false});
   
   render() {
     return (
