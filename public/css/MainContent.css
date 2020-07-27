@@ -101,16 +101,23 @@ div.comment {
   width: 100%;
 }
 
-span.span-comment {
-  font-weight: bold;
-}
-
 p.p-comment {
+  max-width: 100%;
   margin: 5px 0px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   word-wrap: break-word;
+}
+
+span.span-comment {
+  font-weight: bold;
+}
+
+span.more-cm {
+  display: none;
+  color: gray;
+  cursor: pointer;
 }
 
 div.time-post {
