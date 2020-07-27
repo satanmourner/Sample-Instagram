@@ -6,24 +6,37 @@ import Content from './components/Content'
 import Aside from './components/Aside'
 import Section from './components/Section'
 
-function App() {
-  return (
-    <div>
-      <Nav></Nav>
-      <div className="container">
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {showStory: false};
+    this.show = this.show.bind(this);
+  }
 
-        <div className="main">
-          <Story />
-          <Content />
-        </div>
+  show() {
+    this.setState({showStory: true});
+    console.log(this.state.showStory);
+  }
+  
+  render() {
+    return (
+      <div>
+        <Nav></Nav>
+        <div className="container" style={{display: this.state.showStory ? "none" : "flex"}}>
 
-        <div className="aside">
-          <Aside />
+          <div className="main">
+            <Story onClick={this.show}/>
+            <Content />
+          </div>
+
+          <div className="aside">
+            <Aside />
+          </div>
         </div>
+        <Section clicked={this.state.showStory} />
       </div>
-      <Section />
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
