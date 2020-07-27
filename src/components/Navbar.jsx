@@ -13,7 +13,10 @@ export default class Nav extends React.Component {
 
   changeValue = (event) => this.setState({value: event.target.value});
 
-  onClickDiv = () => this.setState({showSpan: true, widthText: 162}); 
+  onClickDiv = () => {
+    this.setState({showSpan: true, widthText: 162}); 
+    this.refs.myIn.focus(); /*impo*/
+  }
 
   onClickClose = (event) => {
     event.stopPropagation(); /*impo*/
@@ -37,7 +40,7 @@ export default class Nav extends React.Component {
         <div id="seacrh">
           <div className="input-container" onClick={this.onClickDiv} ref={this.createRef} >
             <img className="search-logo" src="./images/search-logo.png" />
-            <input className="input-text" type="text" placeholder="Search" value={this.state.value} 
+            <input className="input-text" type="text" placeholder="Search" value={this.state.value} ref="myIn"
               onChange={this.changeValue} style={{width: this.state.widthText ? this.state.widthText : ""}} />
             <span className="close-logo" onClick={this.onClickClose}
             style={{display: this.state.showSpan ? "block" : "none"}} >×</span>
