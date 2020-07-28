@@ -49,6 +49,7 @@ export default class Section extends React.Component {
     } else {
       this.setState({input: false, emojies: true, width: "80%", hideIcon: false});
       newOver = "";
+      newHeight = "";
     }
     if(this.state.setHeight >= "40px") { newOver =  "visible" };
     this.setState({
@@ -61,7 +62,7 @@ export default class Section extends React.Component {
 
   handleSub = (e) => {
     e.preventDefault();
-    this.setState({value: '', width: "80%", hideIcon: false, emojies: false, input: false});
+    this.setState({value: ''});
   }/*some bug for clicking*/
 
   onEnterPress = (e) => (e.keyCode == 13) ? this.handleSub(e) : null;
