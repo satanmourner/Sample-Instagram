@@ -100,7 +100,7 @@ textarea.input-message {
   background-color: transparent;
   border: none;
   height: 20px;
-  max-height: 80px;
+  max-height: 40px;
   resize: none;
   overflow: hidden; /*impo*/
 }
