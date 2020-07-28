@@ -6,12 +6,17 @@ var newCm = false;
 export default class Content extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { setHeight : false, over: false, value: '', submitted: false, input: [], showCm: [], wrap: [], expand: null };
+    this.state = { setHeight : false, over: false, value: '', submitted: false, 
+    input: [], showCm: [], wrap: [], expand: null, more: false };
     this.resizeText = this.resizeText.bind(this);
     this.changeValue = this.changeValue.bind(this);
     this.handleSub = this.handleSub.bind(this);
     this.onEnterPress = this.onEnterPress.bind(this);
     this.expandText = this.expandText.bind(this);
+    this.showMoreSection = this.showMoreSection.bind(this);
+    this.hideMoreSection = this.hideMoreSection.bind(this);
+    this.moreRef = React.createRef();
+    this.link = React.createRef();
   }
 
   resizeText = (e) => {
@@ -48,6 +53,16 @@ export default class Content extends React.Component {
     });
   }
 
+  showMoreSection = () => this.setState(state => ({more: !state.more}));
+
+  componentDidMount = () => document.addEventListener("mousedown", this.hideMoreSection);
+  componentWillUnmount = () => document.removeEventListener("mousedown", this.hideMoreSection);
+
+  hideMoreSection = (e) => {
+    if(!this.moreRef.current.contains(e.target) && !this.link.current.contains(e.target)) 
+      this.setState({more: false});
+  } 
+
   render () {
     return (
       <div className="content">
@@ -60,10 +75,12 @@ export default class Content extends React.Component {
               <a href="#">some id</a>
             </div>
           </div>
-          <div className="more">...</div>
+          <div className="more"  onClick={this.showMoreSection} ref={this.moreRef}>
+            ...
+          </div>
         </div>
-        <div className="more-section">
-          <div className="more-link borderUp">
+        <div className="more-section" style={{display: this.state.more ? "block" : "none"}}>
+          <div className="more-link borderUp" ref={this.link}>
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
           </div>
           <hr />

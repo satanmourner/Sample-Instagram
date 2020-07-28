@@ -3,24 +3,39 @@ import React, { Component } from 'react';
 export default class Section extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {hideStory: null};
+    this.state = {more: false};
     this.hide = this.hide.bind(this);
+    this.showMoreSection = this.showMoreSection.bind(this);
+    this.hideMoreSection = this.hideMoreSection.bind(this);
+    this.moreRef = React.createRef();
+    this.link = React.createRef();
   }
 
   hide = () => this.props.onClick();
 
+  showMoreSection = () => this.setState(state => ({more: !state.more}));
+
+  componentDidMount = () => document.addEventListener("mousedown", this.hideMoreSection);
+  componentWillUnmount = () => document.removeEventListener("mousedown", this.hideMoreSection);
+
+  hideMoreSection = (e) => {
+    if(!this.moreRef.current.contains(e.target) && !this.link.current.contains(e.target)) 
+      this.setState({more: false});
+  } 
+
   render() {
     return (
       <section style={{display: this.props.clicked ? "flex" : "none"}}>
-        <div className="more-section">
-          <div className="more-link borderUp">
+        <div className="more-section" style={{display: this.state.more ? "block" : "none"}}>
+          <div className="more-link borderUp" ref={this.link}>
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
           </div>
           <hr />
-          <div className="more-link borderDown cancle">
+          <div className="more-link borderDown">
             <a href="#">Cancle</a>
           </div>
         </div>
+
         <div className="body-story">
           <div className="header-story">
             <div className="contain-img">
@@ -30,20 +45,21 @@ export default class Section extends React.Component {
               </div>
               <p id="time">thh</p>
             </div>
-            <div className="more">
+            <div className="more" onClick={this.showMoreSection} ref={this.moreRef}>
               ...
             </div>
           </div>
           <div className="hr-story">
             <hr />
           </div>
+
           <div className="main-story">
             <div className="left-side">
-              <div className="arrow-story">
+              <div className="arrow-story" style={{display: this.state.more ? "none" : "block"}}>
                 <i>&lt;</i>
               </div>
             </div>
-            <img className="story" src="./images/WALL3.jpeg" />
+            <img className="story" src="./images/WALL3.jpeg"/>
             <div className="message">
               <div className="message-container">
                 <textarea placeholder="Send message ..." className="input-message" onKeyUp="resizeText(this)" defaultValue={""} />
@@ -55,11 +71,12 @@ export default class Section extends React.Component {
               <div className="close-story" onClick={this.hide}>
                 ×
               </div>
-              <div className="arrow-story">
+              <div className="arrow-story" style={{display: this.state.more ? "none" : "block"}}>
                 <i>&gt;</i>
               </div>
             </div>
           </div>
+
           <div className="react-emojies">
             <p>Quick Reactions</p>
             <div className="emojies-container">
