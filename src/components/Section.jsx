@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+var newOver = "";
+
 export default class Section extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {more: false, width: "", hideIcon: false};
+    this.state = {more: false, width: "", hideIcon: false, emojies: false, setHeight: false, over: false, value: false};
     this.hide = this.hide.bind(this);
     this.showMoreSection = this.showMoreSection.bind(this);
     this.hideMoreSection = this.hideMoreSection.bind(this);
     this.messageShow = this.messageShow.bind(this);
+    this.resizeText = this.resizeText.bind(this);
+    this.changeValue = this.changeValue.bind(this);
     this.moreRef = React.createRef();
     this.link = React.createRef();
     this.message = React.createRef();
@@ -23,13 +27,30 @@ export default class Section extends React.Component {
   hideMoreSection = (e) => {
     if(!this.moreRef.current.contains(e.target) && !this.link.current.contains(e.target)) 
       this.setState({more: false});
+      
     if(!this.message.current.contains(e.target)) 
-      this.setState({width: "80%", hideIcon: false});
+      this.setState({width: "80%", hideIcon: false, emojies: false});
   } 
 
-  messageShow = () => {
-    this.setState({width: "90%", hideIcon: true});
+  messageShow = () => this.setState({width: "90%", hideIcon: true, emojies: true});
+
+  resizeText = (e) => {
+    let newHeight = `${e.target.scrollHeight}px`; 
+    if(e.target.value) {
+      this.setState({value: true, emojies: false});
+    } else {
+      this.setState({value: false, emojies: true});
+      newHeight = ""; 
+      newOver = "";
+    }
+    if(this.state.setHeight >= "40px") { newOver =  "visible" };
+    this.setState({
+      setHeight : newHeight,
+      over: newOver
+    });
   }
+
+  changeValue = (e) => this.setState({ value: e.target.value });
 
   render() {
     return (
@@ -71,8 +92,11 @@ export default class Section extends React.Component {
             <div className="message">
               <div className="message-container" onClick={this.messageShow} ref={this.message}
               style={{width: this.state.width ? this.state.width : ""}}>
-                <textarea placeholder="Send message ..." className="input-message" onKeyUp="resizeText(this)" defaultValue={""} />
-                <input type="submit" defaultValue="Send" />
+                <textarea placeholder="Send message ..." className="input-message" onKeyUp={this.resizeText}
+                style={{height: this.state.setHeight ? this.state.setHeight : "20px",
+                overflow: this.state.over ? this.state.over : "hidden"}} />
+                <input type="submit" value="Send" onChange={this.changeValue} 
+                style={{display: this.state.value ? "block" : "none"}} />
               </div>
               <i className="far fa-paper-plane" style={{display: this.state.hideIcon ? "none" : "block"}}/>
             </div>
@@ -86,7 +110,7 @@ export default class Section extends React.Component {
             </div>
           </div>
 
-          <div className="react-emojies" style={{display: this.state.hideIcon ? "flex" : "none"}}>
+          <div className="react-emojies" style={{display: this.state.emojies ? "flex" : "none"}}>
             <p>Quick Reactions</p>
             <div className="emojies-container">
               <i className="far fa-grin-squint-tears" />
