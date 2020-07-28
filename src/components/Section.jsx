@@ -5,13 +5,15 @@ var newOver = "";
 export default class Section extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {more: false, width: "", hideIcon: false, emojies: false, setHeight: false, over: false, value: false};
+    this.state = {value: '', more: false, width: "", hideIcon: false, emojies: false,
+    setHeight: false, over: false, input: false};
     this.hide = this.hide.bind(this);
     this.showMoreSection = this.showMoreSection.bind(this);
     this.hideMoreSection = this.hideMoreSection.bind(this);
     this.messageShow = this.messageShow.bind(this);
     this.resizeText = this.resizeText.bind(this);
     this.changeValue = this.changeValue.bind(this);
+    this.handleSub = this.handleSub.bind(this);
     this.moreRef = React.createRef();
     this.link = React.createRef();
     this.message = React.createRef();
@@ -29,17 +31,17 @@ export default class Section extends React.Component {
       this.setState({more: false});
       
     if(!this.message.current.contains(e.target)) 
-      this.setState({width: "80%", hideIcon: false, emojies: false});
+      this.setState({width: "80%", hideIcon: false, emojies: false, input: false});
   } 
 
-  messageShow = () => this.setState({width: "90%", hideIcon: true, emojies: true});
+  messageShow = () => this.setState({width: "90%", hideIcon: true, emojies: true, input: true});
 
   resizeText = (e) => {
     let newHeight = `${e.target.scrollHeight}px`; 
     if(e.target.value) {
-      this.setState({value: true, emojies: false});
+      this.setState({input: true, emojies: false});
     } else {
-      this.setState({value: false, emojies: true});
+      this.setState({input: false, emojies: true});
       newHeight = ""; 
       newOver = "";
     }
@@ -51,6 +53,16 @@ export default class Section extends React.Component {
   }
 
   changeValue = (e) => this.setState({ value: e.target.value });
+
+  handleSub = (e) => {
+    e.preventDefault();
+    this.setState({value: '',
+    width: "80%", 
+    hideIcon: false, 
+    emojies: false,
+    input: false
+    });
+  }
 
   render() {
     return (
@@ -92,11 +104,12 @@ export default class Section extends React.Component {
             <div className="message">
               <div className="message-container" onClick={this.messageShow} ref={this.message}
               style={{width: this.state.width ? this.state.width : ""}}>
-                <textarea placeholder="Send message ..." className="input-message" onKeyUp={this.resizeText}
+                <textarea placeholder="Send message ..." className="input-message" onKeyUp={this.resizeText} 
                 style={{height: this.state.setHeight ? this.state.setHeight : "20px",
-                overflow: this.state.over ? this.state.over : "hidden"}} />
-                <input type="submit" value="Send" onChange={this.changeValue} 
-                style={{display: this.state.value ? "block" : "none"}} />
+                overflow: this.state.over ? this.state.over : "hidden"}} 
+                value={this.state.value} onChange={this.changeValue} ref="myIn" />
+                <input type="submit" value="Send" onClick={this.handleSub}
+                style={{display: this.state.input ? "block" : "none"}} />
               </div>
               <i className="far fa-paper-plane" style={{display: this.state.hideIcon ? "none" : "block"}}/>
             </div>
