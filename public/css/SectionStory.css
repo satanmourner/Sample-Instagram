@@ -119,6 +119,7 @@ div.react-emojies {
   height: 15%;
   position: absolute;
   bottom: 14%;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   display: none;
