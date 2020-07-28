@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 export default class Section extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {more: false};
+    this.state = {more: false, width: "", hideIcon: false};
     this.hide = this.hide.bind(this);
     this.showMoreSection = this.showMoreSection.bind(this);
     this.hideMoreSection = this.hideMoreSection.bind(this);
+    this.messageShow = this.messageShow.bind(this);
     this.moreRef = React.createRef();
     this.link = React.createRef();
+    this.message = React.createRef();
   }
 
   hide = () => this.props.onClick();
@@ -21,7 +23,13 @@ export default class Section extends React.Component {
   hideMoreSection = (e) => {
     if(!this.moreRef.current.contains(e.target) && !this.link.current.contains(e.target)) 
       this.setState({more: false});
+    if(!this.message.current.contains(e.target)) 
+      this.setState({width: "80%", hideIcon: false});
   } 
+
+  messageShow = () => {
+    this.setState({width: "90%", hideIcon: true});
+  }
 
   render() {
     return (
@@ -61,11 +69,12 @@ export default class Section extends React.Component {
             </div>
             <img className="story" src="./images/WALL3.jpeg"/>
             <div className="message">
-              <div className="message-container">
+              <div className="message-container" onClick={this.messageShow} ref={this.message}
+              style={{width: this.state.width ? this.state.width : ""}}>
                 <textarea placeholder="Send message ..." className="input-message" onKeyUp="resizeText(this)" defaultValue={""} />
                 <input type="submit" defaultValue="Send" />
               </div>
-              <i className="far fa-paper-plane" />
+              <i className="far fa-paper-plane" style={{display: this.state.hideIcon ? "none" : "block"}}/>
             </div>
             <div className="right-side">
               <div className="close-story" onClick={this.hide}>
@@ -77,7 +86,7 @@ export default class Section extends React.Component {
             </div>
           </div>
 
-          <div className="react-emojies">
+          <div className="react-emojies" style={{display: this.state.hideIcon ? "flex" : "none"}}>
             <p>Quick Reactions</p>
             <div className="emojies-container">
               <i className="far fa-grin-squint-tears" />
