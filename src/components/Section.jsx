@@ -14,6 +14,7 @@ export default class Section extends React.Component {
     this.resizeText = this.resizeText.bind(this);
     this.changeValue = this.changeValue.bind(this);
     this.handleSub = this.handleSub.bind(this);
+    this.onEnterPress = this.onEnterPress.bind(this);
     this.moreRef = React.createRef();
     this.link = React.createRef();
     this.message = React.createRef();
@@ -34,15 +35,19 @@ export default class Section extends React.Component {
       this.setState({width: "80%", hideIcon: false, emojies: false, input: false});
   } 
 
-  messageShow = () => this.setState({width: "90%", hideIcon: true, emojies: true, input: true});
+  messageShow = () => {
+    this.refs.myIn.focus();
+    this.setState({width: "90%", hideIcon: true, input: true});
+    if(!this.refs.myIn.value) 
+      this.setState({emojies: true});
+  }
 
   resizeText = (e) => {
     let newHeight = `${e.target.scrollHeight}px`; 
     if(e.target.value) {
-      this.setState({input: true, emojies: false});
+      this.setState({input: true, emojies: false, width: "90%", hideIcon: true});
     } else {
-      this.setState({input: false, emojies: true});
-      newHeight = ""; 
+      this.setState({input: false, emojies: true, width: "80%", hideIcon: false});
       newOver = "";
     }
     if(this.state.setHeight >= "40px") { newOver =  "visible" };
@@ -56,13 +61,10 @@ export default class Section extends React.Component {
 
   handleSub = (e) => {
     e.preventDefault();
-    this.setState({value: '',
-    width: "80%", 
-    hideIcon: false, 
-    emojies: false,
-    input: false
-    });
-  }
+    this.setState({value: '', width: "80%", hideIcon: false, emojies: false, input: false});
+  }/*some bug for clicking*/
+
+  onEnterPress = (e) => (e.keyCode == 13) ? this.handleSub(e) : null;
 
   render() {
     return (
@@ -105,10 +107,10 @@ export default class Section extends React.Component {
               <div className="message-container" onClick={this.messageShow} ref={this.message}
               style={{width: this.state.width ? this.state.width : ""}}>
                 <textarea placeholder="Send message ..." className="input-message" onKeyUp={this.resizeText} 
-                style={{height: this.state.setHeight ? this.state.setHeight : "20px",
+                onKeyDown={this.onEnterPress} style={{height: this.state.setHeight ? this.state.setHeight : "20px",
                 overflow: this.state.over ? this.state.over : "hidden"}} 
                 value={this.state.value} onChange={this.changeValue} ref="myIn" />
-                <input type="submit" value="Send" onClick={this.handleSub}
+                <input type="submit" value="Send" onClick={this.handleSub} 
                 style={{display: this.state.input ? "block" : "none"}} />
               </div>
               <i className="far fa-paper-plane" style={{display: this.state.hideIcon ? "none" : "block"}}/>
