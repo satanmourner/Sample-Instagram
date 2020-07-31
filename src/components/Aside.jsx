@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
 export default class Aside extends React.Component {
+  constructor(props) {
+    super(props);
+    this.follow = this.follow.bind(this);
+  }
+
+  follow = (e) => {
+    (e.target.textContent == "follow") ? e.target.textContent = "followed" : e.target.textContent = "follow";
+  }
+
   render () {
     return (
       <div className="left">
@@ -26,7 +35,7 @@ export default class Aside extends React.Component {
                 <p>some name</p>
               </div>
             </div>
-            <a href="#">follow</a>
+            <a href="#" onClick={this.follow}>follow</a>
           </div>
           <div className="center-section-row">
             <div className="center-section">
@@ -36,7 +45,7 @@ export default class Aside extends React.Component {
                 <p>some name</p>
               </div>
             </div>
-            <a href="#">follow</a>
+            <a href="#" onClick={this.follow}>follow</a>
           </div>
           <div className="center-section-row">
             <div className="center-section">
@@ -46,7 +55,7 @@ export default class Aside extends React.Component {
                 <p>some name</p>
               </div>
             </div>
-            <a href="#">follow</a>
+            <a href="#" onClick={this.follow}>follow</a>
           </div>
           <div className="center-section-row">
             <div className="center-section">
@@ -56,7 +65,7 @@ export default class Aside extends React.Component {
                 <p>some name</p>
               </div>
             </div>
-            <a href="#">follow</a>
+            <a href="#" onClick={this.follow}>follow</a>
           </div>
           <div className="center-section-row">
             <div className="center-section">
@@ -66,7 +75,7 @@ export default class Aside extends React.Component {
                 <p>some name</p>
               </div>
             </div>
-            <a href="#">follow</a>
+            <a href="#" onClick={this.follow}>follow</a>
           </div>
         </div>
         <div className="down">
