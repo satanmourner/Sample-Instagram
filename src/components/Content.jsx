@@ -7,7 +7,7 @@ export default class Content extends React.Component {
   constructor(props) {
     super(props);
     this.state = { setHeight : false, over: false, value: '', submitted: false, 
-    input: [], showCm: [], wrap: [], expand: null, more: false };
+    input: [], showCm: [], expand: [], more: false };
     this.resizeText = this.resizeText.bind(this);
     this.changeValue = this.changeValue.bind(this);
     this.handleSub = this.handleSub.bind(this);
@@ -46,12 +46,8 @@ export default class Content extends React.Component {
 
   onEnterPress = (e) => (e.keyCode == 13) ? this.handleSub(e) : null;
 
-  expandText = (id) => {
-    this.setState({
-      expand: id,
-      /*has some bug and after click on more -> display: none*/
-    });
-  }
+  expandText = () => this.setState({expand: this.state.expand.concat(true)});
+  
 
   showMoreSection = () => this.setState(state => ({more: !state.more}));
 
@@ -113,11 +109,10 @@ export default class Content extends React.Component {
           </div>
           <div className="comment">
             {this.state.submitted ? this.state.input.map((input, index) => 
-            <p className="p-comment" style={{whiteSpace: (this.state.expand === index) 
-            && (this.state.showCm[index]) ? "normal" : "nowrap"}}>
+            <p className="p-comment" style={{whiteSpace: this.state.expand[index] ? "normal" : "nowrap"}}>
             <span className="span-comment">some id </span>{input}
-            <span className="more-cm" style={{display: this.state.showCm[index] ? "block" : "none"}}>
-            <a onClick={() => this.expandText(index)}>more...</a></span></p>) 
+            <span className="more-cm" style={{display: this.state.showCm[index] && !this.state.expand[index] ? "block" : "none"}}>
+            <a onClick={this.expandText}>more...</a></span></p>) 
             : "none"}
           </div>
           <div className="time-post">
