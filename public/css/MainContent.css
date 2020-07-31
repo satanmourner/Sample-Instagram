@@ -158,3 +158,18 @@ textarea.comment-message {
   padding: 0px 15px;
   cursor: pointer;
 }
+
+div.more-content {
+  width:27%;
+  height: 15%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  background-color: rgb(53, 50, 50);
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
+}

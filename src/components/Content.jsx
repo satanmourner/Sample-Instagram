@@ -61,21 +61,69 @@ export default class Content extends React.Component {
 
   render () {
     return (
-      <div className="content">
-        <div className="header-content-row">
-          <div className="header-content">
-            <div className="contain-pic-content">
-              <img className="pro-story" src="./images/avatar-other2.jpg" />
+      <div>
+        <div className="content">
+          <div className="header-content-row">
+            <div className="header-content">
+              <div className="contain-pic-content">
+                <img className="pro-story" src="./images/avatar-other2.jpg" />
+              </div>
+              <div className="idName">
+                <a href="#">some id</a>
+              </div>
             </div>
-            <div className="idName">
-              <a href="#">some id</a>
+            <div className="more"  onClick={this.showMoreSection} ref={this.moreRef}>
+              ...
             </div>
           </div>
-          <div className="more"  onClick={this.showMoreSection} ref={this.moreRef}>
-            ...
+          
+          <div className="main-post">
+            <img src="./images/WALL3.jpeg" />
+          </div>
+          <div className="like-cm-save">
+            <div className="right" style={{justifyContent: 'flex-start'}}>
+              <i className="far fa-heart" />
+              <i className="far fa-comment" />
+              <i className="far fa-paper-plane" />
+            </div>
+            <div className="center-content">
+              if slide
+            </div>
+            <div className="left-content">
+              <i className="far fa-bookmark" />
+            </div>
+          </div>
+          <div className="liked">
+            number liked
+          </div>
+          <div className="container-content">
+            <div className="caption">
+              caption
+            </div>
+            <div className="comment">
+              {this.state.submitted ? this.state.input.map((input, index) => 
+              <p className="p-comment" style={{whiteSpace: this.state.expand[index] ? "normal" : "nowrap"}}>
+              <span className="span-comment">some id </span>{input}
+              <span className="more-cm" style={{display: this.state.showCm[index] && !this.state.expand[index] ? "block" : "none"}}>
+              <a onClick={this.expandText}>more...</a></span></p>) 
+              : "none"}
+            </div>
+            <div className="time-post">
+              time posted
+            </div>
+          </div>
+          <hr />
+          <div className="ur-comment">
+            <textarea className="comment-message" placeholder="Add a comment..." 
+            onKeyUp={this.resizeText} onKeyDown={this.onEnterPress}
+            style={{height: this.state.setHeight ? this.state.setHeight : "20px",
+            overflow: this.state.over ? this.state.over : "hidden" }} 
+            value={this.state.value} onChange={this.changeValue} />
+            <input type="submit" value="Post" onClick={this.handleSub} />
           </div>
         </div>
-        <div className="more-container" style={{display: this.state.more ? "block" : "none"}}>
+
+        <div className="more-content" style={{display: this.state.more ? "block" : "none"}}>
           <div className="more-link borderUp" ref={this.link}>
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
           </div>
@@ -83,50 +131,6 @@ export default class Content extends React.Component {
           <div className="more-link borderDown cancle">
             <a href="#">Cancle</a>
           </div>
-        </div>
-        <div className="main-post">
-          <img src="./images/WALL3.jpeg" />
-        </div>
-        <div className="like-cm-save">
-          <div className="right" style={{justifyContent: 'flex-start'}}>
-            <i className="far fa-heart" />
-            <i className="far fa-comment" />
-            <i className="far fa-paper-plane" />
-          </div>
-          <div className="center-content">
-            if slide
-          </div>
-          <div className="left-content">
-            <i className="far fa-bookmark" />
-          </div>
-        </div>
-        <div className="liked">
-          number liked
-        </div>
-        <div className="container-content">
-          <div className="caption">
-            caption
-          </div>
-          <div className="comment">
-            {this.state.submitted ? this.state.input.map((input, index) => 
-            <p className="p-comment" style={{whiteSpace: this.state.expand[index] ? "normal" : "nowrap"}}>
-            <span className="span-comment">some id </span>{input}
-            <span className="more-cm" style={{display: this.state.showCm[index] && !this.state.expand[index] ? "block" : "none"}}>
-            <a onClick={this.expandText}>more...</a></span></p>) 
-            : "none"}
-          </div>
-          <div className="time-post">
-            time posted
-          </div>
-        </div>
-        <hr />
-        <div className="ur-comment">
-          <textarea className="comment-message" placeholder="Add a comment..." 
-          onKeyUp={this.resizeText} onKeyDown={this.onEnterPress}
-          style={{height: this.state.setHeight ? this.state.setHeight : "20px",
-          overflow: this.state.over ? this.state.over : "hidden" }} 
-          value={this.state.value} onChange={this.changeValue} />
-          <input type="submit" value="Post" onClick={this.handleSub} />
         </div>
       </div>
     );
