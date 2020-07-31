@@ -61,6 +61,8 @@ export default class Section extends React.Component {
   changeValue = (e) => this.setState({ value: e.target.value });
 
   handleSub = (e) => {
+
+    console.log(e.target);
     e.preventDefault();
     this.setState({value: ''});
   }/*some bug for clicking*/
@@ -69,76 +71,80 @@ export default class Section extends React.Component {
 
   render() {
     return (
-      <section style={{display: this.props.clicked ? "flex" : "none"}}>
-        <div className="more-section" style={{display: this.state.more ? "block" : "none"}}>
-          <div className="more-link borderUp" ref={this.link}>
-            <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
-          </div>
-          <hr />
-          <div className="more-link borderDown">
-            <a href="#">Cancle</a>
-          </div>
-        </div>
-
-        <div className="body-story">
-          <div className="header-story">
-            <div className="contain-img">
-              <img className="pro-story" src="./images/avatar.png" />
-              <div className="story-text">
-                <a href="#" title="name">id no.1</a>
+      <div>
+        <section style={{display: this.props.clicked ? "flex" : "none", filter: this.state.more ? "brightness(50%)" : "none"}}>
+          <div className="body-story">
+            <div className="header-story">
+              <div className="contain-img">
+                <img className="pro-story" src="./images/avatar.png" />
+                <div className="story-text">
+                  <a href="#" title="name">id no.1</a>
+                </div>
+                <p id="time">thh</p>
               </div>
-              <p id="time">thh</p>
+              <div className="more" onClick={this.showMoreSection} ref={this.moreRef}>
+                ...
+              </div>
             </div>
-            <div className="more" onClick={this.showMoreSection} ref={this.moreRef}>
-              ...
+            <div className="hr-story">
+              <hr />
+            </div>
+
+            <div className="main-story">
+              <div className="left-side">
+                <div className="arrow-story" style={{display: this.state.more ? "none" : "block"}}>
+                  <i>&lt;</i>
+                </div>
+              </div>
+              <img className="story" src="./images/WALL3.jpeg"/>
+              <div className="message">
+                <div className="message-container" onClick={this.messageShow} ref={this.message}
+                style={{width: this.state.width ? this.state.width : ""}}>
+                  <textarea placeholder="Send message ..." className="input-message" onKeyUp={this.resizeText} 
+                  onKeyDown={this.onEnterPress} style={{height: this.state.setHeight ? this.state.setHeight : "20px",
+                  overflow: this.state.over ? this.state.over : "hidden"}} 
+                  value={this.state.value} onChange={this.changeValue} ref="myIn" />
+                  <input type="submit" value="Send" onClick={this.handleSub} 
+                  style={{display: this.state.input ? "block" : "none"}} />
+                </div>
+                <i className="far fa-paper-plane" style={{display: this.state.hideIcon ? "none" : "block"}}/>
+              </div>
+              <div className="right-side">
+                <div className="close-story" onClick={this.hide}>
+                  ×
+                </div>
+                <div className="arrow-story" style={{display: this.state.more ? "none" : "block"}}>
+                  <i>&gt;</i>
+                </div>
+              </div>
+            </div>
+
+            <div className="react-emojies" style={{display: this.state.emojies ? "flex" : "none"}}>
+              <p>Quick Reactions</p>
+              <div className="emojies-container">
+                <i className="far fa-grin-squint-tears" />
+                <i className="far fa-surprise" />
+                <i className="far fa-grin-hearts" />
+                <i className="far fa-sad-tear" />
+                <i className="fas fa-hand-middle-finger" />
+                <i className="fas fa-fire" />
+              </div>
             </div>
           </div>
-          <div className="hr-story">
+        </section>
+
+        <div className="more-section" style={{display: this.props.clicked ? "flex" : "none"}}>
+          <div className="more-container" style={{display: this.state.more ? "block" : "none"}}>
+            <div className="more-link borderUp" ref={this.link}>
+              <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
+            </div>
             <hr />
-          </div>
-
-          <div className="main-story">
-            <div className="left-side">
-              <div className="arrow-story" style={{display: this.state.more ? "none" : "block"}}>
-                <i>&lt;</i>
-              </div>
-            </div>
-            <img className="story" src="./images/WALL3.jpeg"/>
-            <div className="message">
-              <div className="message-container" onClick={this.messageShow} ref={this.message}
-              style={{width: this.state.width ? this.state.width : ""}}>
-                <textarea placeholder="Send message ..." className="input-message" onKeyUp={this.resizeText} 
-                onKeyDown={this.onEnterPress} style={{height: this.state.setHeight ? this.state.setHeight : "20px",
-                overflow: this.state.over ? this.state.over : "hidden"}} 
-                value={this.state.value} onChange={this.changeValue} ref="myIn" />
-                <input type="submit" value="Send" onClick={this.handleSub} 
-                style={{display: this.state.input ? "block" : "none"}} />
-              </div>
-              <i className="far fa-paper-plane" style={{display: this.state.hideIcon ? "none" : "block"}}/>
-            </div>
-            <div className="right-side">
-              <div className="close-story" onClick={this.hide}>
-                ×
-              </div>
-              <div className="arrow-story" style={{display: this.state.more ? "none" : "block"}}>
-                <i>&gt;</i>
-              </div>
-            </div>
-          </div>
-
-          <div className="react-emojies" style={{display: this.state.emojies ? "flex" : "none"}}>
-            <p>Quick Reactions</p>
-            <div className="emojies-container">
-              <i className="far fa-grin-squint-tears" />
-              <i className="far fa-surprise" />
-              <i className="far fa-grin-hearts" />
-              <i className="far fa-sad-tear" />
-              <i className="fas fa-hand-middle-finger" />
-              <i className="fas fa-fire" />
+            <div className="more-link borderDown">
+              <a href="#">Cancle</a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 }

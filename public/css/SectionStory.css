@@ -15,13 +15,25 @@ section {
 }
 
 div.more-section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+div.more-container {
   align-self: center;
   width: 27%;
   height: 15%;
   background-color: rgb(53, 50, 50);
   border-radius: 20px;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
   display: none;
 }
