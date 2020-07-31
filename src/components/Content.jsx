@@ -75,7 +75,7 @@ export default class Content extends React.Component {
             ...
           </div>
         </div>
-        <div className="more-section" style={{display: this.state.more ? "block" : "none"}}>
+        <div className="more-container" style={{display: this.state.more ? "block" : "none"}}>
           <div className="more-link borderUp" ref={this.link}>
             <a href="mailto: mahmoudi.sanaz59@gmail.com">Report inappropriate</a>
           </div>
