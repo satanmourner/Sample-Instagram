@@ -9,15 +9,18 @@ import Section from './components/Section'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showStory: false};
+    this.state = {showStory: false, listImg: null, listName: null};
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
+    this.catch = this.catch.bind(this);
   }
 
   show = () => this.setState({showStory: true});
 
   hide = () => this.setState({showStory: false});
-  
+
+  catch = (prof, name) => this.setState({listImg: prof, listName: name});
+
   render() {
     return (
       <div>
@@ -25,7 +28,7 @@ class App extends React.Component {
         <div className="container" style={{display: this.state.showStory ? "none" : "flex"}}>
 
           <div className="main">
-            <Story onClick={this.show}/>
+            <Story onClick={this.show} getData={this.catch} />
             <Content />
           </div>
 
@@ -33,7 +36,7 @@ class App extends React.Component {
             <Aside />
           </div>
         </div>
-        <Section clicked={this.state.showStory} onClick={this.hide} />
+        <Section clicked={this.state.showStory} onClick={this.hide} giveDate={this.state.listData} />
       </div>
     );
   }

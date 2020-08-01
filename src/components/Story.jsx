@@ -8,9 +8,12 @@ export default class Story extends React.Component {
   constructor(props) {
     super(props);
     this.state = {showLeft: false, trans: 0};
+    this.imgProf = [];
+    this.name = [];
     this.transfromShow = this.transfromShow.bind(this);
     this.transformHide = this.transformHide.bind(this);
     this.show = this.show.bind(this);
+    this.catch = this.catch.bind(this);
   }
 
   transfromShow() {
@@ -38,17 +41,23 @@ export default class Story extends React.Component {
 
   show = (e) => this.props.onClick();
 
+  catch = (index) => {
+    console.log(this.imgProf[index].src);
+    console.log(this.name[index].textContent);
+    this.props.getData(this.imgProf[index].src, this.name[index].textContent);
+  }
+
   render() {
     return (
       <div className="stories">
         <div className="all-stories" style={{transform: this.state.trans}} >
-        {userStory.map(user => (
-          <div className="contain-story">
+        {userStory.map((user, index) => (
+          <div className="contain-story" onClick={() => this.catch(index)}>
             <div className="contain-pic" onClick={this.show}>
-              <img className="story-pic" src={user.imgSrc} />
+              <img className="story-pic" src={user.imgProf} ref={ref => this.imgProf[index] = ref} />
             </div>
             <div className="story-text" onClick={this.show}>
-              <a href="#">{user.name}</a>
+              <a href="#" ref={ref => this.name[index] = ref}>{user.name}</a>
             </div>
           </div>
         ))}
@@ -67,15 +76,15 @@ export default class Story extends React.Component {
 }
 
 const userStory = [
-  {id: 1, name: "user 1", imgSrc: "./images/avatar.png" },
-  {id: 2, name: "user 2", imgSrc: "./images/avatar-other.jpeg"},
-  {id: 3, name: "user 3", imgSrc: "./images/avatar-other2.jpg"},
-  {id: 4, name: "user 4", imgSrc: "./images/avatar-other.jpeg"},
-  {id: 5, name: "user 5", imgSrc: "./images/avatar-other2.jpg"},
-  {id: 6, name: "user 6", imgSrc: "./images/avatar-other.jpeg"},
-  {id: 7, name: "user 7", imgSrc: "./images/avatar-other2.jpg"},
-  {id: 8, name: "user 8", imgSrc: "./images/prof.jpg"},
-  {id: 9, name: "user 9", imgSrc: "./images/avatar-other2.jpg"},
-  {id: 10, name: "user 10", imgSrc: "./images/avatar-other.jpeg"},
-  {id: 11, name: "user 11", imgSrc: "./images/avatar-other2.jpg"},
+  {id: 1, name: "user 1", imgProf: "./images/avatar.png" },
+  {id: 2, name: "user 2", imgProf: "./images/avatar-other.jpeg"},
+  {id: 3, name: "user 3", imgProf: "./images/avatar-other2.jpg"},
+  {id: 4, name: "user 4", imgProf: "./images/avatar-other.jpeg"},
+  {id: 5, name: "user 5", imgProf: "./images/avatar-other2.jpg"},
+  {id: 6, name: "user 6", imgProf: "./images/avatar-other.jpeg"},
+  {id: 7, name: "user 7", imgProf: "./images/avatar-other2.jpg"},
+  {id: 8, name: "user 8", imgProf: "./images/prof.jpg"},
+  {id: 9, name: "user 9", imgProf: "./images/avatar-other2.jpg"},
+  {id: 10, name: "user 10", imgProf: "./images/avatar-other.jpeg"},
+  {id: 11, name: "user 11", imgProf: "./images/avatar-other2.jpg"},
 ]
