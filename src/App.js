@@ -36,7 +36,7 @@ class App extends React.Component {
             <Aside />
           </div>
         </div>
-        <Section clicked={this.state.showStory} onClick={this.hide} giveDate={this.state.listData} />
+        <Section clicked={this.state.showStory} onClick={this.hide} src={this.state.listImg} name={this.state.listName} />
       </div>
     );
   }

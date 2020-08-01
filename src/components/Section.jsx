@@ -61,7 +61,6 @@ export default class Section extends React.Component {
   changeValue = (e) => this.setState({ value: e.target.value });
 
   handleSub = (e) => {
-
     console.log(e.target);
     e.preventDefault();
     this.setState({value: ''});
@@ -76,9 +75,9 @@ export default class Section extends React.Component {
           <div className="body-story">
             <div className="header-story">
               <div className="contain-img">
-                <img className="pro-story" src="./images/avatar.png" />
+                <img className="pro-story" src={this.props.src} />
                 <div className="story-text">
-                  <a href="#" title="name">id no.1</a>
+                  <a href="#" title="name">{this.props.name}</a>
                 </div>
                 <p id="time">thh</p>
               </div>

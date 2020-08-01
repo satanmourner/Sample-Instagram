@@ -41,11 +41,7 @@ export default class Story extends React.Component {
 
   show = (e) => this.props.onClick();
 
-  catch = (index) => {
-    console.log(this.imgProf[index].src);
-    console.log(this.name[index].textContent);
-    this.props.getData(this.imgProf[index].src, this.name[index].textContent);
-  }
+  catch = (index) => this.props.getData(this.imgProf[index].src, this.name[index].textContent);
 
   render() {
     return (
