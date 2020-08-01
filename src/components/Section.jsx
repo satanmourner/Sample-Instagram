@@ -95,7 +95,7 @@ export default class Section extends React.Component {
                   <i>&lt;</i>
                 </div>
               </div>
-              <img className="story" src="./images/WALL3.jpeg"/>
+              <img className="story" src={this.props.section} />
               <div className="message">
                 <div className="message-container" onClick={this.messageShow} ref={this.message}
                 style={{width: this.state.width ? this.state.width : ""}}>

@@ -9,7 +9,7 @@ import Section from './components/Section'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {showStory: false, listImg: null, listName: null};
+    this.state = {showStory: false, listImg: null, listName: null, listSrc: null};
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
     this.catch = this.catch.bind(this);
@@ -19,7 +19,7 @@ class App extends React.Component {
 
   hide = () => this.setState({showStory: false});
 
-  catch = (prof, name) => this.setState({listImg: prof, listName: name});
+  catch = (prof, name, src) => this.setState({listImg: prof, listName: name, listSrc: src});
 
   render() {
     return (
@@ -36,7 +36,8 @@ class App extends React.Component {
             <Aside />
           </div>
         </div>
-        <Section clicked={this.state.showStory} onClick={this.hide} src={this.state.listImg} name={this.state.listName} />
+        <Section clicked={this.state.showStory} onClick={this.hide} src={this.state.listImg} 
+        name={this.state.listName} section={this.state.listSrc} />
       </div>
     );
   }

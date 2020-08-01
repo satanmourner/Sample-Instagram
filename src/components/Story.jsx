@@ -41,7 +41,7 @@ export default class Story extends React.Component {
 
   show = (e) => this.props.onClick();
 
-  catch = (index) => this.props.getData(this.imgProf[index].src, this.name[index].textContent);
+  catch = (index) => this.props.getData(this.imgProf[index].src, this.name[index].textContent, userStory[index].imgSrc);
 
   render() {
     return (
@@ -72,15 +72,15 @@ export default class Story extends React.Component {
 }
 
 const userStory = [
-  {id: 1, name: "user 1", imgProf: "./images/avatar.png" },
-  {id: 2, name: "user 2", imgProf: "./images/avatar-other.jpeg"},
-  {id: 3, name: "user 3", imgProf: "./images/avatar-other2.jpg"},
-  {id: 4, name: "user 4", imgProf: "./images/avatar-other.jpeg"},
-  {id: 5, name: "user 5", imgProf: "./images/avatar-other2.jpg"},
-  {id: 6, name: "user 6", imgProf: "./images/avatar-other.jpeg"},
-  {id: 7, name: "user 7", imgProf: "./images/avatar-other2.jpg"},
-  {id: 8, name: "user 8", imgProf: "./images/prof.jpg"},
-  {id: 9, name: "user 9", imgProf: "./images/avatar-other2.jpg"},
-  {id: 10, name: "user 10", imgProf: "./images/avatar-other.jpeg"},
-  {id: 11, name: "user 11", imgProf: "./images/avatar-other2.jpg"},
+  {id: 1, name: "user 1", imgProf: "./images/avatar.png" , imgSrc: "./images/Static story's images/WALL3.jpeg"},
+  {id: 2, name: "user 2", imgProf: "./images/avatar-other.jpeg", imgSrc: "./images/Static story's images/5lbf10.jpg"},
+  {id: 3, name: "user 3", imgProf: "./images/avatar-other2.jpg", imgSrc: "./images/Static story's images/IMG_1679.JPG"},
+  {id: 4, name: "user 4", imgProf: "./images/avatar-other.jpeg", imgSrc: "./images/Static story's images/my Love.png"},
+  {id: 5, name: "user 5", imgProf: "./images/avatar-other2.jpg", imgSrc: "./images/Static story's images/re.jpg"},
+  {id: 6, name: "user 6", imgProf: "./images/avatar-other.jpeg", imgSrc: "./images/Static story's images/spidereyes_mini.jpg"},
+  {id: 7, name: "user 7", imgProf: "./images/avatar-other2.jpg", imgSrc: "./images/Static story's images/WALL3.jpeg"},
+  {id: 8, name: "user 8", imgProf: "./images/prof.jpg", imgSrc: "./images/Static story's images/5lbf10.jpg"},
+  {id: 9, name: "user 9", imgProf: "./images/avatar-other2.jpg", imgSrc: "./images/Static story's images/IMG_1679.JPG"},
+  {id: 10, name: "user 10", imgProf: "./images/avatar-other.jpeg", imgSrc: "./images/Static story's images/my Love.png"},
+  {id: 11, name: "user 11", imgProf: "./images/avatar-other2.jpg", imgSrc: "./images/Static story's images/re.jpg"},
 ]
