@@ -27,56 +27,19 @@ export default class Aside extends React.Component {
             </div>
             <a href="#" style={{color: 'white', textDecoration: 'none'}}>see all</a>
           </div>
-          <div className="center-section-row">
-            <div className="center-section">
-              <img className="pro-story" src="./images/avatar-other.jpeg" />
-              <div className="idName">
-                <a href="#">some id</a>
-                <p>some name</p>
+
+          {userSuggestion.map(user => (
+            <div className="center-section-row">
+              <div className="center-section">
+                <img className="pro-story" src={user.imgSrc} />
+                <div className="idName">
+                  <a href="#">{user.id}</a>
+                  <p>{user.name}</p>
+                </div>
               </div>
+              <a href="#" onClick={this.follow}>follow</a>
             </div>
-            <a href="#" onClick={this.follow}>follow</a>
-          </div>
-          <div className="center-section-row">
-            <div className="center-section">
-              <img className="pro-story" src="./images/avatar-other2.jpg" />
-              <div className="idName">
-                <a href="#">some id</a>
-                <p>some name</p>
-              </div>
-            </div>
-            <a href="#" onClick={this.follow}>follow</a>
-          </div>
-          <div className="center-section-row">
-            <div className="center-section">
-              <img className="pro-story" src="./images/avatar-other.jpeg" />
-              <div className="idName">
-                <a href="#">some id</a>
-                <p>some name</p>
-              </div>
-            </div>
-            <a href="#" onClick={this.follow}>follow</a>
-          </div>
-          <div className="center-section-row">
-            <div className="center-section">
-              <img className="pro-story" src="./images/avatar-other2.jpg" />
-              <div className="idName">
-                <a href="#">some id</a>
-                <p>some name</p>
-              </div>
-            </div>
-            <a href="#" onClick={this.follow}>follow</a>
-          </div>
-          <div className="center-section-row">
-            <div className="center-section">
-              <img className="pro-story" src="./images/avatar-other.jpeg" />
-              <div className="idName">
-                <a href="#">some id</a>
-                <p>some name</p>
-              </div>
-            </div>
-            <a href="#" onClick={this.follow}>follow</a>
-          </div>
+          ))}
         </div>
         <div className="down">
           <div className="aside-link">
@@ -98,3 +61,11 @@ export default class Aside extends React.Component {
     );
   }
 }
+
+const userSuggestion = [
+  {id: "id 1", name: "user 1", imgSrc: "./images/avatar-other.jpeg"},
+  {id: "id 2", name: "user 2", imgSrc: "./images/avatar-other2.jpg"},
+  {id: "id 3", name: "user 3", imgSrc: "./images/avatar-other.jpeg"},
+  {id: "id 4", name: "user 4", imgSrc: "./images/avatar-other2.jpg"},
+  {id: "id 5", name: "user 5", imgSrc: "./images/avatar-other.jpeg"}
+]
