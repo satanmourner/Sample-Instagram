@@ -51,7 +51,7 @@ export default class Story extends React.Component {
               <a href="#">{user.name}</a>
             </div>
           </div>
-        ))};
+        ))}
         </div>
         <div className="arrows">
           <div className="arrow-left" style={{display: this.state.showLeft ? "block" : "none"}} onClick={this.transformHide} >
