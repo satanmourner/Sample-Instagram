@@ -48,7 +48,7 @@ export default class Story extends React.Component {
       <div className="stories">
         <div className="all-stories" style={{transform: this.state.trans}} >
         {userStory.map((user, index) => (
-          <div className="contain-story" onClick={() => this.catch(index)}>
+          <div className="contain-story" onClick={() => this.catch(index)} key={user.id}>
             <div className="contain-pic" onClick={this.show}>
               <img className="story-pic" src={user.imgProf} ref={ref => this.imgProf[index] = ref} />
             </div>

@@ -102,7 +102,7 @@ export default class Content extends React.Component {
             </div>
             <div className="comment">
               {this.state.submitted ? this.state.input.map((input, index) => 
-              <p className="p-comment" style={{whiteSpace: this.state.expand[index] ? "normal" : "nowrap"}}>
+              <p className="p-comment" style={{whiteSpace: this.state.expand[index] ? "normal" : "nowrap"}} key={input.id}>
               <span className="span-comment">some id </span>{input}
               <span className="more-cm" style={{display: this.state.showCm[index] && !this.state.expand[index] ? "block" : "none"}}>
               <a onClick={this.expandText}>more...</a></span></p>) 

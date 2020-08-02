@@ -29,7 +29,7 @@ export default class Aside extends React.Component {
           </div>
 
           {userSuggestion.map(user => (
-            <div className="center-section-row">
+            <div className="center-section-row" key={user.id}>
               <div className="center-section">
                 <img className="pro-story" src={user.imgSrc} />
                 <div className="idName">
